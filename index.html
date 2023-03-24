@@ -8,83 +8,65 @@
 </head>
 <body>
     <script>
-        let result;
+        //counters for keeping the score
         let user = 0;
         let computer = 0;
 
-
+        
+        //computer values
         const picks = ["rock","paper","scissors"];
+        
         // function that will pick a random answer for the computer
         function getComputerChoice(){
             let pick = Math.floor(Math.random()*picks.length);
             return picks[pick];
         }
 
+
+        //this is the game
+
         function playRound(playerSelection,computerSelection){
-            
-            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()){
-                result = "tie";
-            }
-            else if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase()==='scissors'){
-                result = "player";
-                user ++;
-            }
-           else if (playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase()==='paper'){
-                result = "computer";
-                computer++;
-            }
-          else  if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase()==='paper'){
-                result = "player";
-                user++;
-            }
-           else if (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase()==='rock'){
-                result = "computer";
-                computer++;
-            }
-           else if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase()==='rock'){
-                result = "player";
-                user++;
-            }
-          else  if (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase()==='scissors'){
-                result = "computer";
-                computer++;
-            }
-            updateScoreMessage(result, playerSelection, computerSelection)
+            let result = "";
+        if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
+        (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper') ||
+        (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')) {
+        
+        user += 1;
+        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
+            + "\nPlayer score: " + user + "Computer score: " + computer);
+
+        if (user == 5) {
+            result += '\nYou won the game! Reload the page to play again';
+        }
         }
 
-        function counter(){
+        else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+        result = ('It\'s a tie. You both chose ' + playerSelection
+            + "\nPlayer score: " + user + " Computer score: " + computer);
+        }
+         else {
+            computer += 1;
+            result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
+                + "\nPlayer score: " + user + " Computer score: " + computer);
 
-        } 
+            if (computer == 5) {
+                result += '\nI won the game! Reload the page to play again'
+            }
+        }
 
+        return result;
+        }   
+
+        //user input and console print
         function game(){
-
-            while (user || computer < 5) {
                 let playerSelection = prompt("Pick rock, paper or scissors");
                 let computerSelection = getComputerChoice();
                 console.log(playRound(playerSelection,computerSelection));
             }
 
-            if (user > computer){
-                return console.log("Congrats!! You won!!");
-            }
-            else if (computer > user){
-              return  console.log("Unfortunately you've lost!!");
-            }
+        while (user < 5 && computer < 5){
+            game();
         }
-        game();
-
-       /* const playerSelection = 'rock';
-        const computerSelection = getComputerChoice();
-        console.log(computerSelection);
-        console.log(playRound(playerSelection,computerSelection)); */
-        // users input
-        // compare the picks
-        //ask for another pick if the answer is same
-        // output the result
-        // keep the score for each player
-        // output the winner
-        // play again
-           
         
     </script>
 
