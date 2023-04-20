@@ -1,0 +1,197 @@
+@import url('https://fonts.cdnfonts.com/css/games');
+:root {
+    background-color: yellow;
+    font-family: 'Games', sans-serif;
+
+}
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: black;
+}
+
+@import url('https://fonts.cdnfonts.com/css/arcade-classic');
+h1 {
+    font-size: 60px;
+    color: yellow;
+    font-family: 'ArcadeClassic', sans-serif;
+}
+.sign {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+.scoreboard {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+    padding: 17px;
+    margin: 0 auto;
+    font-size: 25px;
+}
+
+.score-box {
+    width: 170px;
+}
+
+.buttons {
+    display: flex;
+    gap: 60px;
+
+}
+
+.btn-square {
+    width: 160px;
+    height: 160px;
+}
+.btn {
+    font-family: "Open Sans", sans-serif;
+    background-color: yellowgreen;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    touch-action: manipulation;
+}   
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 70px;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    opacity: 1.0;
+  }
+
+  .modal {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    padding: 47px;
+    border-radius: 10px;
+    background-color: yellow;
+    text-align: center;
+    font-size: 30px;
+    user-select: none;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    color: black;
+  }
+  
+  .modal.active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .modal-title {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .btn-restart {
+    padding: 10px 20px;
+    margin-bottom: 15px;
+    background-color: yellowgreen;
+    color: black;
+    font-size: 40px;
+    border-radius: 30px;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
+  }
+  
+  .overlay.active {
+    display: block;
+  }
+
+@media (max-width: 550px) {
+    .title {
+      font-size: 18px;
+    }
+  
+    .score-info {
+      font-size: 26px;
+    }
+  
+    .buttons {
+      gap: 10px;
+      }
+  
+    .btn-square {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .sign {
+      font-size: 50px;
+    }
+  
+    .modal {
+      width: 95%;
+    }
+  }
+  
+  .btn:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .btn {
+      padding: 0.25em 0.75em;
+    }
+  }
+  
+
+
+

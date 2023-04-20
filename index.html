@@ -5,71 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+                
 </head>
-<body>
-    <script>
-        //counters for keeping the score
-        let user = 0;
-        let computer = 0;
+<body id = "container">
 
-        
-        //computer values
-        const picks = ["rock","paper","scissors"];
-        
-        // function that will pick a random answer for the computer
-        function getComputerChoice(){
-            let pick = Math.floor(Math.random()*picks.length);
-            return picks[pick];
-        }
+    <header class="header">
+    <h1>ROCK PAPER SCISSORS</h1>
+    </header>
 
+    <div class="scoreboard">
+        <h2 class="game-info" id="game-info">What's your choice?</h2>
+        <h3 class="set-message" id="set-message">First to 5, wins the game</h3>
+        <div class="score">
+            <div class="score-box">
+            <div class="sign" id="player-sign">❔</div>
+            <p class="score" id="player">Player: 0</p>
+            </div>
+            <div class="score-box">
+                <div class="sign" id="computer-sign">❔</div>
+                <p class="score" id="computer">Computer: 0</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="buttons">
+    <button class="btn btn-square" id="btn" value="rock">
+        <div class="sign">✊</div>
+    </button>
+    <button class="btn btn-square" id="btn2" value="paper">
+        <div class="sign">✋</div></button>
+    <button class="btn btn-square" id="btn3" value="scissors">
+        <div class="sign">✌️</div>
+    </button>
+    </div> 
 
-        //this is the game
+    <div class="modal" id="endgameModal">
+        <p class="modal-title" id="endgameMsg"></p>
+        <button class="btn btn-restart" id="restartBtn">Play again</button>
+      </div>
+      <div class="overlay" id="overlay"></div>
 
-        function playRound(playerSelection,computerSelection){
-            let result = "";
-        if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissors') ||
-        (playerSelection.toLowerCase() === 'scissors' && computerSelection.toLowerCase() === 'paper') ||
-        (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock')) {
-        
-        user += 1;
-        result = ('You win! ' + playerSelection + ' beats ' + computerSelection
-            + "\nPlayer score: " + user + "Computer score: " + computer);
-
-        if (user == 5) {
-            result += '\nYou won the game! Reload the page to play again';
-        }
-        }
-
-        else if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-        result = ('It\'s a tie. You both chose ' + playerSelection
-            + "\nPlayer score: " + user + " Computer score: " + computer);
-        }
-         else {
-            computer += 1;
-            result = ('You lose! ' + computerSelection + ' beats ' + playerSelection
-                + "\nPlayer score: " + user + " Computer score: " + computer);
-
-            if (computer == 5) {
-                result += '\nI won the game! Reload the page to play again'
-            }
-        }
-
-        return result;
-        }   
-
-        //user input and console print
-        function game(){
-                let playerSelection = prompt("Pick rock, paper or scissors");
-                let computerSelection = getComputerChoice();
-                console.log(playRound(playerSelection,computerSelection));
-            }
-
-        while (user < 5 && computer < 5){
-            game();
-        }
-        
-    </script>
 
 
 </body>
+<script src="js.js"></script>
 </html>
